@@ -1,5 +1,5 @@
 import { LitElement, css, html } from 'lit'
-import litLogo from './assets/lit.svg'
+import litLogo from '../assets/lit.svg'
 import viteLogo from '/vite.svg'
 
 /**
@@ -8,7 +8,7 @@ import viteLogo from '/vite.svg'
  * @slot - This element has a slot
  * @csspart button - The button
  */
-export class MyElement extends LitElement {
+export class StockControlApp extends LitElement {
   static get properties() {
     return {
       /**
@@ -128,4 +128,4 @@ export class MyElement extends LitElement {
   }
 }
 
-window.customElements.define('my-element', MyElement)
+window.customElements.define('stockcontrol-app', StockControlApp);
