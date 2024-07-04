@@ -1,16 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Lit</title>
-    <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/my-element.js"></script>
-  </head>
-  <body>
-    <my-element>
-      <h1>Vite + Lit</h1>
-    </my-element>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRODUCT MANAGENT</title>
+  <script type="module" src="./index.js"></script> <!--importacion del scrip tipo modulo index donde se alojan nuestros componentes -->
+</head>
+
+<body>
+  <style  is="custom-style" include="demo-pages-shared-styles">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+  </style>
+  <nav-bar></nav-bar> <!--uso de la tag custom nav bar-->
+
+  <my-app></my-app><!--uso de la tag custom my app-->
+
+</body>
+
 </html>

@@ -1,17 +1,20 @@
 {
-  "name": "stock-control-system",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "productos-pagina",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "web-dev-server --node-resolve --open --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@web/dev-server": "^0.4.5",
+    "web-dev-server": "^3.0.27"
   },
   "dependencies": {
     "lit": "^3.1.4"
-  },
-  "devDependencies": {
-    "vite": "^5.3.1"
   }
 }
