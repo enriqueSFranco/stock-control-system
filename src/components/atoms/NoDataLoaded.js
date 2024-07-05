@@ -1,3 +1,9 @@
+/**
+ * Filename: NoDataLoaded.js
+ * Author: Luis Antonio Montoya Morales
+ * Description: Placeholder whwn no data to display
+ */
+
 import { LitElement, html } from "lit";
 
 class NoDataLoaded extends LitElement{

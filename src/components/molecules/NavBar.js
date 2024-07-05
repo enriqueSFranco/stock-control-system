@@ -1,3 +1,9 @@
+/**
+ * Filename: NavBar.js
+ * Author: Luis Antonio Montoya Morales
+ * Description: Navigation bar section
+ */
+
 import { LitElement, html, css } from "lit";
 import "../atoms/RouteLink"
 

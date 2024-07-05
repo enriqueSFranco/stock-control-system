@@ -1,3 +1,9 @@
+/**
+ * Filename: OrdersManagement.js
+ * Author: 
+ * Description: Entry point for orders management feature
+ */
+
 import { LitElement, html } from "lit";
 import "../components/templates/BBVATemplate"
 

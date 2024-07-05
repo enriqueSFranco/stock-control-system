@@ -1,3 +1,9 @@
+/**
+ * Filename: OrderView.js
+ * Author: Luis Antonio Montoya Morales
+ * Description: Orders view template
+ */
+
 import { LitElement, html, css } from "lit";
 import "../atoms/NoDataLoaded";
 import "../atoms/OrderCard";

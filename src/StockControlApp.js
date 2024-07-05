@@ -1,7 +1,7 @@
 /**
  * Filename: StockControlApp.js
  * Author: Luis Antonio Montoya Morales
- * Desription: Entry component for the app
+ * Desription: Entry point component for the app
  */
 
 import { LitElement, html, css } from 'lit'

@@ -1,3 +1,9 @@
+/**
+ * Filename: BBVATemplate.js
+ * Author: Luis Antonio Montoya Morales
+ * Description: Template component for the entire app
+ */
+
 import { LitElement, html, css } from "lit";
 import "../organisms/BBVAHeader"
 

@@ -1,3 +1,9 @@
+/**
+ * Filename: StockControl.js
+ * Author: Luis Antonio Montoya Morales
+ * Description: Entry point for orders preview feature
+ */
+
 import { LitElement, html, css } from "lit";
 import "../components/templates/BBVATemplate"
 import "../components/templates/OrdersView"

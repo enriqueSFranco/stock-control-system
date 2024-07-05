@@ -1,3 +1,9 @@
+/**
+ * Filename: RouteTracking.js
+ * Author: 
+ * Description: Entry point for stock control feature
+ */
+
 import { LitElement, html } from "lit";
 import "../components/templates/BBVATemplate"
 

@@ -1,5 +1,10 @@
-import { LitElement, html } from "lit";
+/**
+ * Filename: RouteTracking.js
+ * Author: 
+ * Description: Entry point for route tracking feature
+ */
 
+import { LitElement, html } from "lit";
 import "../components/templates/BBVATemplate"
 
 class RouteTracking extends LitElement{
@@ -10,9 +15,9 @@ class RouteTracking extends LitElement{
     render(){
         return html`
             <bbva-template>
-                <form-routetrack>
+                <div>
                     RouteTracking
-                </form-routetrack>
+                </div>
             </bbva-template>
         `;
     }

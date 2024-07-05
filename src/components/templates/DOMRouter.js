@@ -1,7 +1,7 @@
 /**
  * Filename: DOMRouter.js
- * Description: Page routing class
  * Author: Luis Antonio Montoya Morales
+ * Description: Component for page routing feature 
  */
 
 import { LitElement, html } from 'lit'

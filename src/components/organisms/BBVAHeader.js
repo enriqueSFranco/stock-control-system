@@ -1,3 +1,9 @@
+/**
+ * Filename: BBVAHeader.js
+ * Author: Luis Antonio Montoya Morales
+ * Description: Header for the app
+ */
+
 import { LitElement, html, css } from "lit";
 import "../atoms/RouteLink"
 import '../molecules/NavBar'

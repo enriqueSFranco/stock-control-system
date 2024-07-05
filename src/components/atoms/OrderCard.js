@@ -1,3 +1,9 @@
+/**
+ * Filename: OrderCard.js
+ * Author: Luis Antonio Montoya Morales
+ * Description: Displays order info
+ */
+
 import { LitElement, html, css } from "lit";
 
 class OrderCard extends LitElement{
