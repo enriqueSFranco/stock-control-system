@@ -1,18 +1,18 @@
 import { LitElement, html } from "lit";
 import "../components/templates/BBVATemplate"
 
-class WarehouseView extends LitElement{
+class OrdersManagement extends LitElement{
     static get is(){
-        return 'warehouse-view';
+        return 'orders-management';
     }
 
     render(){
         return html`
             <bbva-template>
-                <div>WarehouseMView</div>
+                <div>OrdersManagement</div>
             </bbva-template>
         `;
     }
 }
 
-window.customElements.define(WarehouseView.is, WarehouseView);
+window.customElements.define(OrdersManagement.is, OrdersManagement);

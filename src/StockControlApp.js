@@ -6,17 +6,17 @@
 
 import { LitElement, html, css } from 'lit'
 
-import "./pages/WarehouseView"
+import "./pages/OrdersPage"
 import "./pages/StockControl"
 import "./pages/RouteTracking"
-import "./pages/WarehouseManagement"
+import "./pages/OrdersManagement"
 import "./components/templates/DOMRouter"
 
 export class StockControlApp extends LitElement {
   _routes = [
-    {path: "/", component: html`<warehouse-view></warehouse-view>`},
+    {path: "/", component: html`<orders-page></orders-page>`},
     {path: "/stock-control", component: html`<stock-control></stock-control>`},
-    {path: "/warehouse-management", component: html`<warehouse-management></warehouse-management>`},
+    {path: "/orders-management", component: html`<orders-management></orders-management>`},
     {path: "/route-tracking", component: html`<route-tracking></route-tracking>`}
   ]
 
@@ -31,6 +31,8 @@ export class StockControlApp extends LitElement {
           --shadow-color: rgba(0, 0, 0, 0.2);
           --yellow-color: #f8cd51;
           --contrast-color: #028484;
+          --light-blue-traslucent: #b6dfff8a;
+          --light-blue: #addcff;
         }
       `
     ]

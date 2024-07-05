@@ -34,7 +34,7 @@ class RouteLink extends LitElement{
                 }
 
                 a:hover{
-                    color: var(--yellow-color);
+                    color: var(--text-color);
                 }
             `
         ]

@@ -20,7 +20,7 @@ class NavBar extends LitElement{
                 li {
                     display: block;
                     width: fit-content;
-                    margin: 0 30px;
+                    margin: 0 20px;
                     list-style: none;
                     font-size: 1rem;
                     font-weight: 500;
@@ -39,13 +39,13 @@ class NavBar extends LitElement{
         return html`
             <ul>
                 <li>
-                    <route-link to="/stock-control">Stock Management</route-link>
+                    <route-link to="/stock-control">Gestión Stock</route-link>
                 </li>
                 <li>
-                    <route-link to="/route-tracking">Route Tracking</route-link>
+                    <route-link to="/route-tracking">Seguimiento Rutas</route-link>
                 </li>
                 <li>
-                    <route-link to="/warehouse-management">Warehouse Management</route-link>
+                    <route-link to="/orders-management">Gestión de Pedidos</route-link>
                 </li>
             </ul>
         `;

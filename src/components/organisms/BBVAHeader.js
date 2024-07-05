@@ -22,7 +22,7 @@ class BBVAHeader extends LitElement{
                     justify-content: space-between;
                     align-items: center;
                     background-color: var(--background);
-                    padding: 15px 0;
+                    padding: 10px 0;
                     z-index: 1000;
                     width: 100%;
                     height: 45px;
@@ -33,7 +33,7 @@ class BBVAHeader extends LitElement{
                 .logo {
                     height: 100%;
                     color: var(--text-color);
-                    font-size: 1.5rem;
+                    font-size: 1.8rem;
                     display: flex;
                     flex-direction: row;
                     align-items: center;

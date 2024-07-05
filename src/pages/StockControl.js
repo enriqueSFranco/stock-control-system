@@ -9,9 +9,7 @@ class StockControl extends LitElement{
     render(){
         return html`
             <bbva-template>
-                <div>
-                    StockControl
-                </div>
+                <form-element></form-element>
             </bbva-template>
         `;
     }

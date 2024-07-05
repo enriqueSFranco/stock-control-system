@@ -10,9 +10,9 @@ class RouteTracking extends LitElement{
     render(){
         return html`
             <bbva-template>
-                <div>
+                <form-routetrack>
                     RouteTracking
-                </div>
+                </form-routetrack>
             </bbva-template>
         `;
     }
