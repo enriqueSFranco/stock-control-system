@@ -4,10 +4,7 @@
  * Description: Entry point for stock control feature
  */
 
-import { LitElement, html, css } from "lit";
-import "../components/templates/BBVATemplate";
-import "../components/templates/ListComponent";
-import "../components/templates/FormularioComponent"
+import { LitElement, html } from "lit";
 import "../components/templates/BBVATemplate"
 
 class StockControl extends LitElement {
