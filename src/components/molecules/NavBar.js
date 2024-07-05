@@ -53,7 +53,6 @@ class NavBar extends LitElement {
                 </li>
                 <li>
                     <route-link to="/orders-management">Gestión de Pedidos</route-link>
-
                 </li>
             </ul>
         `;

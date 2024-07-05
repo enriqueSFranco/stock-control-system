@@ -6,18 +6,18 @@
 
 import { LitElement, html, css } from "lit";
 
-class OrderCard extends LitElement{
-    static get is(){
+class OrderCard extends LitElement {
+    static get is () {
         return "order-card";
     }
 
-    static get properties(){
+    static get properties () {
         return {
             order: Object
         }
     }
 
-    static get styles(){
+    static get styles () {
         return [
             css`
                 :host{
@@ -43,12 +43,12 @@ class OrderCard extends LitElement{
         ];
     }
 
-    constructor(){
+    constructor() {
         super();
         this.order = {}
     }
 
-    render(){
+    render () {
         console.log(this.order);
         return html`
             <div class="header-container">

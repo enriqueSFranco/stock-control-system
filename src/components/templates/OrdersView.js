@@ -8,18 +8,18 @@ import { LitElement, html, css } from "lit";
 import "../atoms/NoDataLoaded";
 import "../atoms/OrderCard";
 
-class OrdersView extends LitElement{
-    static get is(){
+class OrdersView extends LitElement {
+    static get is () {
         return "orders-view";
     }
 
-    static get properties(){
-        return{
+    static get properties () {
+        return {
             data: Array
         }
     }
 
-    static get styles(){
+    static get styles () {
         return [
             css`
                 :host{
@@ -36,14 +36,14 @@ class OrdersView extends LitElement{
         ]
     }
 
-    constructor(){
+    constructor() {
         super();
         this.data = [];
     }
 
-    _getCards(){
+    _getCards () {
         console.log(this.data);
-        if(this.data.length > 0){
+        if (this.data.length > 0) {
             return this.data.map(order => {
                 return html`<order-card .order=${order}></order-card>`;
             });
@@ -51,7 +51,7 @@ class OrdersView extends LitElement{
         return html`<nodata-loaded></nodata-loaded>`;
     }
 
-    render(){
+    render () {
         return html`
             ${this._getCards()}
         `;

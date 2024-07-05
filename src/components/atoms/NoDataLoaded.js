@@ -6,12 +6,12 @@
 
 import { LitElement, html } from "lit";
 
-class NoDataLoaded extends LitElement{
-    static get is(){
+class NoDataLoaded extends LitElement {
+    static get is () {
         return "nodata-loaded";
     }
 
-    render(){
+    render () {
         return html`
             <div>No data for now!</div>
         `;
