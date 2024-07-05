@@ -60,3 +60,35 @@ class MyPage extends LitElement{
     }
 }
 ```
+## Inputs y botones
+Cada input tiene como propiedad un `id`, con esta propiedad se dispara el evento `input-change`, `select-change`, `textarea-change` para los componentes `<input-component>`, `<select-component>` y `<textarea-component`, respectivamente, es necesario registrar los 3 eventos en el componente padre para monitorear los cambios.
+
+Con la misma dinámica, los botones para eliminar y editar (`<boton-eliminar>` y `<boton-editar>`, respectivamente) requieren que en el componente padre registre los eventos `eliminar-clicked` y `editar-clicked`.
+```javascript
+class MyForm extends LitElement{
+    //...
+    connectedCallback(){
+        super.connectedCallback();
+        this.addEventListener('input-change', this._handleInputChange);
+        this.addEventListener('select-change', this._handleSelectChange);
+        this.addEventListener('textarea-change', this._handleTextareaChange);
+    }
+
+    _handleInputChange(e){
+        console.log(`Input with id "${e.detail.id}" has changed its value, new value is ${e.detail.value}`);
+    }
+    //...
+}
+```
+
+```javascript
+class MyItemView extends LitElement{
+    //...
+    connectedCallback(){
+        super.connectedCallback();
+        this.addEventListener('eliminar-clicked', this._handleEliminar);
+        this.addEventListener('editar-clicked', this._handleEditar);
+    }
+    //...
+}
+```
