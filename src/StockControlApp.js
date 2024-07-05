@@ -1,14 +1,26 @@
+/**
+ * Filename: StockControlApp.js
+ * Author: Luis Antonio Montoya Morales
+ * Desription: Entry component for the app
+ */
+
 import { LitElement, html, css } from 'lit'
-import "./components/atoms/RouteLink"
+
+import "./pages/WarehouseView"
+import "./pages/StockControl"
+import "./pages/RouteTracking"
+import "./pages/WarehouseManagement"
 import "./components/templates/DOMRouter"
 
 export class StockControlApp extends LitElement {
   _routes = [
-    {path: "/", component: html`<route-link to="/hola">Ir a Hola</route-link>`},
-    {path: "/hola", component: html`<route-link to="/">Ir a inicio</route-link><route-link to="/nose">Ir a nose</route-link>`},
+    {path: "/", component: html`<warehouse-view></warehouse-view>`},
+    {path: "/stock-control", component: html`<stock-control></stock-control>`},
+    {path: "/warehouse-management", component: html`<warehouse-management></warehouse-management>`},
+    {path: "/route-tracking", component: html`<route-tracking></route-tracking>`}
   ]
 
-  _notFound = html`<route-link to="/">No encontre la ruta</route-link>`
+  _notFound = html`<route-link to="/">No encontré la ruta</route-link>`
 
   static get styles(){
     return [
@@ -16,9 +28,9 @@ export class StockControlApp extends LitElement {
         :host{
           --background: #022744;
           --text-color: #fff;
-          --dimed-color: rgba(0, 0, 0, 0.2);
-          --nothing-color: #f8cd51;
-          --nothing-color2: #028484;
+          --shadow-color: rgba(0, 0, 0, 0.2);
+          --yellow-color: #f8cd51;
+          --contrast-color: #028484;
         }
       `
     ]

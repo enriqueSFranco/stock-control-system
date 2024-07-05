@@ -4,7 +4,7 @@
  * Author: Luis Antonio Montoya Morales
  */
 
-import { LitElement, html } from "lit";
+import { LitElement, html, css } from "lit";
 
 class RouteLink extends LitElement{
     static get is(){
@@ -17,10 +17,34 @@ class RouteLink extends LitElement{
         }
     }
 
+    static get styles(){
+        return [
+            css`
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    transition: inherit;
+                    transform: inherit;
+                    font-size: inherit;
+                    font-weight: inherit;
+                    font-family: inherit;
+                }
+                a:link {
+                    color: inherit;
+                }
+
+                a:hover{
+                    color: var(--yellow-color);
+                }
+            `
+        ]
+    }
+
     constructor(){
         super();
-        this.to = "/"
+        this.to = "#"
     }
+
 
     connectedCallback(){
         super.connectedCallback();
