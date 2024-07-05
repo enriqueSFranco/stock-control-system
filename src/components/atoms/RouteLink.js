@@ -6,18 +6,18 @@
 
 import { LitElement, html, css } from "lit";
 
-class RouteLink extends LitElement{
-    static get is(){
+class RouteLink extends LitElement {
+    static get is () {
         return 'route-link';
     }
 
-    static get properties(){
+    static get properties () {
         return {
             to: String
         }
     }
 
-    static get styles(){
+    static get styles () {
         return [
             css`
                 a {
@@ -35,18 +35,19 @@ class RouteLink extends LitElement{
 
                 a:hover{
                     color: var(--text-color);
+                    color: var(--yellow-color);
                 }
             `
         ]
     }
 
-    constructor(){
+    constructor() {
         super();
         this.to = "#"
     }
 
 
-    connectedCallback(){
+    connectedCallback () {
         super.connectedCallback();
         this.addEventListener('click', this._handleRouteChange);
     }
@@ -57,7 +58,7 @@ class RouteLink extends LitElement{
      * component
      * @param {Object} event 
      */
-    _handleRouteChange(event){
+    _handleRouteChange (event) {
         event.preventDefault();
         window.history.pushState({}, '', this.to);
         window.dispatchEvent(new PopStateEvent('popstate', {
@@ -70,7 +71,7 @@ class RouteLink extends LitElement{
      * 
      * @returns Rendereable lit element template
      */
-    render(){
+    render () {
         return html`
             <a href="${this.to}" @click=${this._handleRouteChange}>
                 <slot></slot>
