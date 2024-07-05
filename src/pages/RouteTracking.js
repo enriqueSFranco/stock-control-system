@@ -1,12 +1,11 @@
 /**
  * Filename: RouteTracking.js
- * Author: Enrique SFranco and Viridiana Olvera Mendoza
+ * Author: 
  * Description: Entry point for route tracking feature
  */
 
-import { LitElement, html } from 'lit'
-import '../components/templates/BBVATemplate'
-import '../components/molecules/delivery-datatable.js'
+import { LitElement, html } from "lit";
+import "../components/templates/BBVATemplate"
 
 class RouteTracking extends LitElement {
   static get is () {
@@ -15,10 +14,12 @@ class RouteTracking extends LitElement {
 
   render () {
     return html`
-      <bbva-template>
-        <delivery-datatable></delivery-datatable>
-      </bbva-template>
-    `
+            <bbva-template>
+                <div>
+                    RouteTracking
+                </div>
+            </bbva-template>
+        `;
   }
 }
 
