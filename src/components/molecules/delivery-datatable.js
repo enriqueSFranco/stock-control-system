@@ -2,7 +2,7 @@ import { LitElement, css, html } from 'lit'
 
 import '../atoms/table-row.js'
 import '../atoms/table-head.js'
-import { TRUCKS, TABLE_HEAD } from '../../shared/constants.d.js'
+import { TABLE_HEAD } from '../../shared/constants.d.js'
 
 export class DeliveryDatatable extends LitElement {
   static styles = css`
@@ -39,12 +39,12 @@ export class DeliveryDatatable extends LitElement {
     }
   `
   static properties = {
-    trucks: { type: Array }
+    data: { type: Array, state: true }
   }
 
   constructor() {
     super()
-    this.trucks = TRUCKS
+    this.data = []
   }
 
   render () {
@@ -56,7 +56,7 @@ export class DeliveryDatatable extends LitElement {
           </tr>
         </thead>
         <tbody>
-          ${this.trucks.map((truck) => this._renderTableRow(truck))}
+          ${this.data.length > 0 ? this.data.map((truck) => this._renderTableRow(truck)) : html`<tr colspan="${TABLE_HEAD.length}"><td>sin datos</td></tr>`}
         </tbody>
       </table>
     `
