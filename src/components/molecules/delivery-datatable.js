@@ -2,53 +2,60 @@ import { LitElement, css, html } from 'lit'
 
 import '../atoms/table-row.js'
 import '../atoms/table-head.js'
-import { TABLE_HEAD } from '../../shared/constants.d.js'
+import { formatMonet } from '../../utils/format_money.js'
+import { TABLE_HEAD, TRUCKS } from '../../shared/constants.d.js'
 
 export class DeliveryDatatable extends LitElement {
   static styles = css`
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  table th {
+    background-color: #032744;
+    color: #fff;
+  }
+  
+  table tbody tr:hover {
+    background-color: #cacaca5f;
+  }
+  
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .container {
+    margin: 2rem;
+  }
 
-    table th,
-    table td {
-      padding: 10px;
-      text-align: left;
-    }
-
-    table th {
-      background-color: #021ab3;
-      color: #fff;
-    }
-
-    table tbody tr:hover {
-      background-color: #53535362;
-    }
-
-    tr {
-      border-bottom: 1px solid #ddd;
-    }
-
-    .status-pending {
-      color: #f77f00;
-    }
-
-    .status-delivered {
-      color: #4caf50;
-    }
+  .status-pending {
+    color: #f77f00;
+  }
+  
+  .status-delivered {
+    color: #4caf50;
+  }
   `
+
   static properties = {
     data: { type: Array, state: true }
   }
 
   constructor() {
     super()
-    this.data = []
+    this.data = TRUCKS
   }
 
   render () {
     return html`
+    <div class="container">
       <table>
         <thead>
           <tr>
@@ -59,6 +66,7 @@ export class DeliveryDatatable extends LitElement {
           ${this.data.length > 0 ? this.data.map((truck) => this._renderTableRow(truck)) : html`<tr colspan="${TABLE_HEAD.length}"><td>sin datos</td></tr>`}
         </tbody>
       </table>
+    </div>
     `
   }
 
@@ -74,10 +82,14 @@ export class DeliveryDatatable extends LitElement {
   // TODO: Pasar a un componente
   _renderCell (key, value) {
     if (key === 'estado') {
-      const statusColor = this._getStatusColor(value)
+      // const statusColor = this._getStatusColor(value)
       // TODO: Implementarlo con el componente <my-badge></my-badge>
-      return html`<td class="${statusColor}">${value}</td>`
+      return html`<td><my-badge text="${value}" textColor="${value === 'entregado' ? '#118502' : '#f74600'}" bgColor="${value === 'entregado' ? '#00f06c55' : '#f7800073'}"></my-badge></td>`
     } else {
+      if (key === 'totalCuenta') {
+        const formattedMoney = formatMonet(value)
+        return html`<td>${formattedMoney}</td>`
+      }
       return html`<td>${value}</td>`
     }
   }
