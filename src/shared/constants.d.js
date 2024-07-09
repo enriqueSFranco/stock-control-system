@@ -14,7 +14,7 @@ const TRUCKS = [
     fecha: '2024-07-03',
     cliente: 'Cliente 2',
     direccion: 'Dirección 2',
-    totalCuenta: 75.20,
+    totalCuenta: 7520,
     estado: 'entregado'
   },
   {
@@ -22,7 +22,7 @@ const TRUCKS = [
     fecha: '2024-07-02',
     cliente: 'Cliente 3',
     direccion: 'Dirección 3',
-    totalCuenta: 150.75,
+    totalCuenta: 15075,
     estado: 'entregado'
   },
   {
@@ -30,7 +30,7 @@ const TRUCKS = [
     fecha: '2024-07-01',
     cliente: 'Cliente 4',
     direccion: 'Dirección 4',
-    totalCuenta: 200.00,
+    totalCuenta: 20000,
     estado: 'pendiente'
   },
   {
@@ -38,7 +38,7 @@ const TRUCKS = [
     fecha: '2024-06-30',
     cliente: 'Cliente 5',
     direccion: 'Dirección 5',
-    totalCuenta: 80.90,
+    totalCuenta: 8090,
     estado: 'entregado'
   }
 ]
