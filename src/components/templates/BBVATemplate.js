@@ -8,12 +8,12 @@ import { LitElement, html, css } from "lit";
 import "../organisms/BBVAHeader"
 
 
-class BBVATemplate extends LitElement{
-    static get is(){
+class BBVATemplate extends LitElement {
+    static get is () {
         return 'bbva-template';
     }
 
-    static get styles(){
+    static get styles () {
         return [
             css`
                 bbva-header{
@@ -23,7 +23,7 @@ class BBVATemplate extends LitElement{
         ]
     }
 
-    render(){
+    render () {
         return html`
             <bbva-header .version=${"Stock Control System"}></bbva-header>
             <slot></slot>

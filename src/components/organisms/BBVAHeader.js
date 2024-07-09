@@ -8,18 +8,18 @@ import { LitElement, html, css } from "lit";
 import "../atoms/RouteLink"
 import '../molecules/NavBar'
 
-class BBVAHeader extends LitElement{
-    static get is(){
+class BBVAHeader extends LitElement {
+    static get is () {
         return "bbva-header";
     }
-    
-    static get properties(){
-        return{
+
+    static get properties () {
+        return {
             version: String
         }
     }
 
-    static get styles(){
+    static get styles () {
         return [
             css`
                 :host{
@@ -29,6 +29,7 @@ class BBVAHeader extends LitElement{
                     align-items: center;
                     background-color: var(--background);
                     padding: 10px 0;
+                    padding: 15px 0;
                     z-index: 1000;
                     width: 100%;
                     height: 45px;
@@ -40,6 +41,7 @@ class BBVAHeader extends LitElement{
                     height: 100%;
                     color: var(--text-color);
                     font-size: 1.8rem;
+                    font-size: 1.5rem;
                     display: flex;
                     flex-direction: row;
                     align-items: center;
@@ -55,7 +57,7 @@ class BBVAHeader extends LitElement{
         ]
     }
 
-    render(){
+    render () {
         return html`
             <route-link to="/">
                 <div class="logo">

@@ -8,12 +8,12 @@ import { LitElement, html, css } from "lit";
 import "../atoms/RouteLink"
 
 
-class NavBar extends LitElement{
-    static get is(){
+class NavBar extends LitElement {
+    static get is () {
         return 'nav-bar'
     }
 
-    static get styles(){
+    static get styles () {
         return [
             css`
                 ul{
@@ -27,6 +27,7 @@ class NavBar extends LitElement{
                     display: block;
                     width: fit-content;
                     margin: 0 20px;
+                    margin: 0 30px;
                     list-style: none;
                     font-size: 1rem;
                     font-weight: 500;
@@ -41,7 +42,7 @@ class NavBar extends LitElement{
         ]
     }
 
-    render(){
+    render () {
         return html`
             <ul>
                 <li>
