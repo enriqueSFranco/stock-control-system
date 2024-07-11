@@ -180,6 +180,7 @@ class StockControl extends LitElement {
     if (index !== -1) {
       this.listaProductos[index] = productoEditado;
       this.listaProductos = [...this.listaProductos]; // Forzar la actualización de la lista
+      setLocalStorageItem('productos', this.listaProductos)
     }
     this.editando = false; // Finaliza el modo de edición
     this.objProducto = {
@@ -204,6 +205,7 @@ class StockControl extends LitElement {
   _eliminarProducto (e) {
     const id = e.detail;
     this.listaProductos = this.listaProductos.filter((item) => item.id !== id);
+    setLocalStorageItem('productos', this.listaProductos)
     this._dispatchListProductNotify();
   }
 
@@ -224,7 +226,7 @@ class StockControl extends LitElement {
    * Evento para notificar si la lista de productos ha cambiando
    */
   _dispatchListProductNotify () {
-    console.log(">>>_dispatchListProductNotify");
+    // console.log(">>>_dispatchListProductNotify");
     const notifyDataEvent = new CustomEvent(
       "stock-control-list-product-notify",
       {
