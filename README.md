@@ -116,7 +116,3 @@ class MyItemView extends LitElement {
   //...
 }
 ```
-
-```
-
-```
