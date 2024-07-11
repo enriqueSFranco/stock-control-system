@@ -52,4 +52,4 @@ export class StockControlApp extends LitElement {
   }
 }
 
-window.customElements.define('stockcontrol-app', StockControlApp);
+window.customElements.define('stockcontrol-app', StockControlApp)
