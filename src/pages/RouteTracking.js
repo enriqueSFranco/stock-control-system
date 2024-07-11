@@ -6,6 +6,7 @@
 
 import { LitElement, html } from "lit";
 import "../components/templates/BBVATemplate"
+import '../components/molecules/delivery-datatable'
 
 class RouteTracking extends LitElement {
   static get is () {
@@ -14,10 +15,10 @@ class RouteTracking extends LitElement {
 
   render () {
     return html`
-            <bbva-template>
-                <div>RouteTracking</div>
-            </bbva-template>
-        `;
+      <bbva-template>
+          <delivery-datatable></delivery-datatable>
+      </bbva-template>
+    `;
   }
 }
 
