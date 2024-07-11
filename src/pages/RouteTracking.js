@@ -6,19 +6,20 @@
 
 import { LitElement, html } from "lit";
 import "../components/templates/BBVATemplate"
+import '../components/molecules/delivery-datatable'
 
-class RouteTracking extends LitElement{
-    static get is(){
-        return 'route-tracking';
-    }
+class RouteTracking extends LitElement {
+  static get is () {
+    return 'route-tracking'
+  }
 
-    render(){
-        return html`
-            <bbva-template>
-                <div>RouteTracking</div>
-            </bbva-template>
-        `;
-    }
+  render () {
+    return html`
+      <bbva-template>
+          <delivery-datatable></delivery-datatable>
+      </bbva-template>
+    `;
+  }
 }
 
-window.customElements.define(RouteTracking.is, RouteTracking);
+window.customElements.define(RouteTracking.is, RouteTracking)

@@ -51,12 +51,12 @@ const dummyData = [
     }
 ]
 
-class OrdersPage extends LitElement{
-    static get is(){
+class OrdersPage extends LitElement {
+    static get is () {
         return 'orders-page';
     }
 
-    static get properties(){
+    static get properties () {
         return {
             orders: {
                 type: Array,
@@ -65,7 +65,7 @@ class OrdersPage extends LitElement{
         }
     }
 
-    static get css(){
+    static get css () {
         return [
             css`
                 :host{
@@ -75,24 +75,24 @@ class OrdersPage extends LitElement{
         ]
     }
 
-    constructor(){
+    constructor() {
         super();
         window.localStorage.setItem("orders", JSON.stringify(dummyData));
         this.orders = [];
     }
 
-    connectedCallback(){
+    connectedCallback () {
         super.connectedCallback();
         this._loadOrders();
     }
 
-    _loadOrders(){
+    _loadOrders () {
         let data = JSON.parse(window.localStorage.getItem("orders"));
         console.log(data, data && Array.isArray(data));
         this.orders = (data && Array.isArray(data)) ? data : [];
     }
 
-    render(){
+    render () {
         return html`
             <bbva-template>
                 <main>

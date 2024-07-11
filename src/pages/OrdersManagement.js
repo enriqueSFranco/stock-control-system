@@ -7,12 +7,12 @@
 import { LitElement, html } from "lit";
 import "../components/templates/BBVATemplate"
 
-class OrdersManagement extends LitElement{
-    static get is(){
+class OrdersManagement extends LitElement {
+    static get is () {
         return 'orders-management';
     }
 
-    render(){
+    render () {
         return html`
             <bbva-template>
                 <div>OrdersManagement</div>

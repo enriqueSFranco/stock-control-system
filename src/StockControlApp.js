@@ -1,7 +1,9 @@
 /**
  * Filename: StockControlApp.js
  * Author: Luis Antonio Montoya Morales
+
  * Desription: Entry point component for the app
+ * Desription: Entry component for the app
  */
 
 import { LitElement, html, css } from 'lit'
@@ -14,15 +16,15 @@ import "./components/templates/DOMRouter"
 
 export class StockControlApp extends LitElement {
   _routes = [
-    {path: "/", component: html`<orders-page></orders-page>`},
-    {path: "/stock-control", component: html`<stock-control></stock-control>`},
-    {path: "/orders-management", component: html`<orders-management></orders-management>`},
-    {path: "/route-tracking", component: html`<route-tracking></route-tracking>`}
+    { path: "/", component: html`<warehouse-view></warehouse-view>` },
+    { path: "/stock-control", component: html`<stock-control></stock-control>` },
+    { path: "/warehouse-management", component: html`<warehouse-management></warehouse-management>` },
+    { path: "/route-tracking", component: html`<route-tracking></route-tracking>` }
   ]
 
   _notFound = html`<route-link to="/">No encontré la ruta</route-link>`
 
-  static get styles(){
+  static get styles () {
     return [
       css`
         :host{
@@ -50,4 +52,4 @@ export class StockControlApp extends LitElement {
   }
 }
 
-window.customElements.define('stockcontrol-app', StockControlApp);
+window.customElements.define('stockcontrol-app', StockControlApp)
