@@ -45,12 +45,12 @@ export class DeliveryDatatable extends LitElement {
   `
 
   static properties = {
-    data: { type: Array, state: true }
+    data: { type: Array }
   }
 
   constructor() {
     super()
-    this.data = TRUCKS
+    this.data = []
   }
 
   render () {
@@ -68,6 +68,16 @@ export class DeliveryDatatable extends LitElement {
       </table>
     </div>
     `
+  }
+
+  connectedCallback () {
+    super.connectedCallback()
+    document.addEventListener('stock-control-list-product-notify', this._notifyDataSetChange.bind(this))
+  }
+
+  disconnectedCallback () {
+    super.disconnectedCallback()
+    document.removeEventListener('stock-control-list-product-notify', this._notifyDataSetChange.bind(this))
   }
 
   // TODO: Pasar a un componente
@@ -98,6 +108,12 @@ export class DeliveryDatatable extends LitElement {
     return status === 'entregado'
       ? 'status-delivered'
       : 'status-pending'
+  }
+
+  _notifyDataSetChange (e) {
+    this.data = e.detail.productos
+    // console.log('>>>> detail: ', e.detail.productos)
+    this.requestUpdate('data')
   }
 }
 

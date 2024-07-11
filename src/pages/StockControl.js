@@ -1,13 +1,13 @@
 /**
  * Filename: RouteTracking.js
- * Author: 
+ * Author:
  * Description: Entry point for stock control feature
  */
 
-import { LitElement, html, css } from "lit";
-import "../components/templates/BBVATemplate";
-import "../components/templates/ListComponent";
-import "../components/templates/FormularioComponent"
+import { LitElement, html, css } from 'lit'
+import '../components/templates/BBVATemplate'
+import '../components/templates/ListComponent'
+import '../components/templates/FormularioComponent'
 
 class StockControl extends LitElement {
   static get properties () {
@@ -15,12 +15,12 @@ class StockControl extends LitElement {
       listaProductos: { type: Array },
       objProducto: { type: Object },
       editando: { type: Boolean }
-    };
+    }
   }
 
   constructor() {
-    super();
-    this.listaProductos = []; // Inicializa la lista de productos vacía
+    super()
+    this.listaProductos = [] // Inicializa la lista de productos vacía
     this.objProducto = {
       id: '',
       nombre: '',
@@ -29,12 +29,12 @@ class StockControl extends LitElement {
       categoria: '',
       cantidad: '',
       descripcion: ''
-    }; // Inicializa el objeto de producto con valores por defecto
-    this.editando = false; // Inicializa el modo de edición como falso
+    } // Inicializa el objeto de producto con valores por defecto
+    this.editando = false // Inicializa el modo de edición como falso
 
     // Escucha eventos del componente formulario-component
-    this.addEventListener('editar-producto', this._editarProducto);
-    this.addEventListener('agregar-producto', this._agregarProducto);
+    this.addEventListener('editar-producto', this._editarProducto)
+    this.addEventListener('agregar-producto', this._agregarProducto)
   }
 
   static get styles () {
@@ -112,9 +112,8 @@ class StockControl extends LitElement {
             margin: 1px;
             padding: 0 2px;
           }
-        `;
+        `
   }
-
 
   render () {
     return html`
@@ -146,34 +145,35 @@ class StockControl extends LitElement {
                     </div>
                 </div>
             </bbva-template>
-        `;
+        `
   }
 
   /**
  * Método para manejar la adición de un nuevo producto a la lista.
  * Actualiza `listaProductos` con el nuevo producto recibido como detalle del evento.
- * 
+ *
  * @param {CustomEvent} e - Evento personalizado que contiene el detalle del nuevo producto.
  */
   _agregarProducto (e) {
-    const nuevaProducto = e.detail;
-    this.listaProductos = [...this.listaProductos, nuevaProducto];
+    const nuevaProducto = e.detail
+    this.listaProductos = [...this.listaProductos, nuevaProducto]
+    this._dispatchListProductNotify()
   }
 
   /**
    * Método para manejar la edición de un producto existente en la lista.
    * Actualiza el producto correspondiente en `listaProductos` con los detalles del producto editado recibidos como detalle del evento.
-   * 
+   *
    * @param {CustomEvent} e - Evento personalizado que contiene el detalle del producto editado.
    */
   _editarProducto (e) {
-    const productoEditado = e.detail;
-    const index = this.listaProductos.findIndex(item => item.id === productoEditado.id);
+    const productoEditado = e.detail
+    const index = this.listaProductos.findIndex(item => item.id === productoEditado.id)
     if (index !== -1) {
-      this.listaProductos[index] = productoEditado;
-      this.listaProductos = [...this.listaProductos]; // Forzar la actualización de la lista
+      this.listaProductos[index] = productoEditado
+      this.listaProductos = [...this.listaProductos] // Forzar la actualización de la lista
     }
-    this.editando = false; // Finaliza el modo de edición
+    this.editando = false // Finaliza el modo de edición
     this.objProducto = { // Reinicia el objeto de producto a valores por defecto
       id: '',
       nombre: '',
@@ -182,31 +182,47 @@ class StockControl extends LitElement {
       categoria: '',
       cantidad: '',
       descripcion: ''
-    };
+    }
+    this._dispatchListProductNotify()
   }
 
   /**
    * Método para manejar la eliminación de un producto de la lista.
    * Filtra `listaProductos` para excluir el producto con el ID recibido como detalle del evento.
-   * 
+   *
    * @param {CustomEvent} e - Evento personalizado que contiene el ID del producto a eliminar.
    */
   _eliminarProducto (e) {
-    const id = e.detail;
-    this.listaProductos = this.listaProductos.filter(item => item.id !== id);
+    const id = e.detail
+    this.listaProductos = this.listaProductos.filter(item => item.id !== id)
+    this._dispatchListProductNotify()
   }
 
   /**
    * Método para manejar la carga de un producto seleccionado para editar desde la lista.
    * Actualiza `objProducto` con los detalles del producto seleccionado recibidos como detalle del evento.
    * Activa el modo de edición (`editando`).
-   * 
+   *
    * @param {CustomEvent} e - Evento personalizado que contiene los detalles del producto seleccionado para editar.
    */
   _cargarProducto (e) {
-    this.objProducto = { ...e.detail };
-    this.editando = true; // Activa el modo de edición
+    this.objProducto = { ...e.detail }
+    this.editando = true // Activa el modo de edición
+    this._dispatchListProductNotify()
+  }
+
+  /**
+   * Evento para notificar si la lista de productos ha cambiando
+   */
+  _dispatchListProductNotify () {
+    console.log('>>>_dispatchListProductNotify')
+    const notifyDataEvent = new CustomEvent('stock-control-list-product-notify', {
+      detail: { productos: this.listaProductos },
+      bubbles: true,
+      composed: true
+    })
+    this.dispatchEvent(notifyDataEvent)
   }
 }
 
-window.customElements.define('stock-control', StockControl);
+window.customElements.define('stock-control', StockControl)

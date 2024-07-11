@@ -8,8 +8,8 @@ import { LitElement, html } from 'lit'
 
 export class DOMRouter extends LitElement {
 
-  static get properties(){
-    return{
+  static get properties () {
+    return {
       routes: {
         type: Array
       },
@@ -32,26 +32,26 @@ export class DOMRouter extends LitElement {
     `;
   }
 
-  connectedCallback(){
+  connectedCallback () {
     super.connectedCallback();
     window.addEventListener('popstate', this._handleRouteChange.bind(this));
   }
 
-  disconnectedCallback(){
+  disconnectedCallback () {
     super.disconnectedCallback();
     window.removeEventListener('popstate', this._handleRouteChange.bind(this));
   }
 
-  _handleRouteChange(event){
-    console.log(event, window.location.pathname);
+  _handleRouteChange (event) {
+    // console.log(event, window.location.pathname);
     this._currentPath = window.location.pathname;
     this.requestUpdate();
   }
 
-  _getToRender(){
-    console.log(this.routes, this._currentPath);
+  _getToRender () {
+    // console.log(this.routes, this._currentPath);
     let component = this.routes.find(route => route.path == this._currentPath);
-    console.log(component);
+    // console.log(component);
     return component ? component.component : this.notFound;
   }
 
