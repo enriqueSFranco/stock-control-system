@@ -45,7 +45,7 @@ export class DeliveryDatatable extends LitElement {
   `
 
   static properties = {
-    data: { type: Array, state: true }
+    data: { type: Array }
   }
 
   constructor() {
@@ -70,15 +70,15 @@ export class DeliveryDatatable extends LitElement {
     `
   }
 
-  // connectedCallback () {
-  //   super.connectedCallback()
-  //   this.addEventListener('stock-control-list-product-notify', this._notifyDataSetChange)
-  // }
+  connectedCallback () {
+    super.connectedCallback()
+    document.addEventListener('stock-control-list-product-notify', this._notifyDataSetChange.bind(this))
+  }
 
-  // disconnectedCallback () {
-  //   super.disconnectedCallback()
-  //   document.removeEventListener('stock-control-list-product-notify', this._notifyDataSetChange)
-  // }
+  disconnectedCallback () {
+    super.disconnectedCallback()
+    document.removeEventListener('stock-control-list-product-notify', this._notifyDataSetChange.bind(this))
+  }
 
   // TODO: Pasar a un componente
   _renderTableRow (row) {
@@ -111,9 +111,9 @@ export class DeliveryDatatable extends LitElement {
   }
 
   _notifyDataSetChange (e) {
-    console.log('>>>> detail: ', e.detail)
-    // this.data = e.detail
-    // this.requestUpdate()
+    this.data = e.detail.productos
+    // console.log('>>>> detail: ', e.detail.productos)
+    this.requestUpdate('data')
   }
 }
 
