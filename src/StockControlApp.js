@@ -16,9 +16,9 @@ import "./components/templates/DOMRouter"
 
 export class StockControlApp extends LitElement {
   _routes = [
-    { path: "/", component: html`<warehouse-view></warehouse-view>` },
+    { path: "/", component: html`<orders-page></orders-page>` },
     { path: "/stock-control", component: html`<stock-control></stock-control>` },
-    { path: "/warehouse-management", component: html`<warehouse-management></warehouse-management>` },
+    { path: "/orders-management", component: html`<orders-management></orders-management>` },
     { path: "/route-tracking", component: html`<route-tracking></route-tracking>` }
   ]
 
