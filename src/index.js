@@ -1,1 +1,1 @@
-import "./components/sotckcontrol-app.js"
+import "./StockControlApp.js"
