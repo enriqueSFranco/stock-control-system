@@ -10,10 +10,6 @@ import "../components/templates/ListComponent";
 import "../components/templates/FormularioComponent"
 
 class StockControl extends LitElement {
-  static get is () {
-    return 'stock-control';
-  }
-
   static get properties () {
     return {
       listaProductos: { type: Array },
@@ -213,4 +209,4 @@ class StockControl extends LitElement {
   }
 }
 
-window.customElements.define(StockControl.is, StockControl);
+window.customElements.define('stock-control', StockControl);

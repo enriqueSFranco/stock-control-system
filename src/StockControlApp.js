@@ -8,7 +8,7 @@
 
 import { LitElement, html, css } from 'lit'
 
-import "./pages/WarehouseView"
+import "./pages/OrdersPage"
 import "./pages/StockControl"
 import "./pages/RouteTracking"
 import "./pages/OrdersManagement"
@@ -52,4 +52,4 @@ export class StockControlApp extends LitElement {
   }
 }
 
-window.customElements.define('stockcontrol-app', StockControlApp);
+window.customElements.define('stockcontrol-app', StockControlApp)
