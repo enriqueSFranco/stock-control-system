@@ -34,14 +34,14 @@ import '../atoms/TextAreaComponent'; // Importan los componente hijos
  * 
  */
 class FormularioComponent extends LitElement {
-  static get properties() {
+  static get properties () {
     return {
       objProducto: { type: Object },
       editando: { type: Boolean }
     };
   }
 
-  static get styles() {
+  static get styles () {
     return css`
       /* Estilos del formulario */
       form {
@@ -121,7 +121,7 @@ class FormularioComponent extends LitElement {
    * 
    * @returns {TemplateResult} Resultado del template HTML renderizado.
    */
-  render() {
+  render () {
     return html`
       <form @submit="${this._validarFormulario}">
         <input-component
@@ -138,10 +138,10 @@ class FormularioComponent extends LitElement {
           label="Estado De Producto"
           id="estado"
           .options="${[
-            { label: 'Nuevo', value: 'Nuevo' },
-            { label: 'Semi Nuevo', value: 'Semi Nuevo' },
-            { label: 'Reacondicionado', value: 'Reacondicionado' }
-          ]}"
+        { label: 'Nuevo', value: 'Nuevo' },
+        { label: 'Semi Nuevo', value: 'Semi Nuevo' },
+        { label: 'Reacondicionado', value: 'Reacondicionado' }
+      ]}"
           .value="${this.objProducto.estado}"
           @select-change="${this._handleSelectChange}"
         ></select-component>
@@ -160,10 +160,10 @@ class FormularioComponent extends LitElement {
           label="Categoria Producto"
           id="categoria"
           .options="${[
-            { label: 'Televisores', value: 'Televisores' },
-            { label: 'Celulares', value: 'Celulares' },
-            { label: 'Linea Blanca', value: 'Linea Blanca' }
-          ]}"
+        { label: 'Televisores', value: 'Televisores' },
+        { label: 'Celulares', value: 'Celulares' },
+        { label: 'Linea Blanca', value: 'Linea Blanca' }
+      ]}"
           .value="${this.objProducto.categoria}"
           @select-change="${this._handleSelectChange}"
         ></select-component>
@@ -200,10 +200,10 @@ class FormularioComponent extends LitElement {
    * @param {Event} e - Evento de submit del formulario.
    * @private
    */
-  _validarFormulario(e) {
+  _validarFormulario (e) {
     e.preventDefault();
 
-    const { nombre, estado, precio, categoria, cantidad, descripcion } = this.objProducto;
+    // const { nombre, estado, precio, categoria, cantidad, descripcion } = this.objProducto;
 
     if (this.editando) {
       this.dispatchEvent(new CustomEvent('editar-producto', { detail: this.objProducto }));
@@ -223,7 +223,7 @@ class FormularioComponent extends LitElement {
    * @param {CustomEvent} e - Evento `input-change` de los componentes internos.
    * @private
    */
-  _handleInputChange(e) {
+  _handleInputChange (e) {
     const prop = e.detail.id;
     this.objProducto = { ...this.objProducto, [prop]: e.detail.value };
   }
@@ -235,7 +235,7 @@ class FormularioComponent extends LitElement {
    * @param {CustomEvent} e - Evento `select-change` de los componentes internos.
    * @private
    */
-  _handleSelectChange(e) {
+  _handleSelectChange (e) {
     const prop = e.detail.id;
     this.objProducto = { ...this.objProducto, [prop]: e.detail.value };
   }
@@ -247,7 +247,7 @@ class FormularioComponent extends LitElement {
    * @param {CustomEvent} e - Evento `textarea-change` del componente textarea.
    * @private
    */
-  _handleTextareaChange(e) {
+  _handleTextareaChange (e) {
     this.objProducto = { ...this.objProducto, descripcion: e.detail.value };
   }
 
@@ -256,7 +256,7 @@ class FormularioComponent extends LitElement {
    * 
    * @private
    */
-  limpiarObjeto() {
+  limpiarObjeto () {
     this.objProducto = {
       id: '',
       nombre: '',
