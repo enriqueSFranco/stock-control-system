@@ -50,7 +50,7 @@ export class DeliveryDatatable extends LitElement {
 
   constructor() {
     super()
-    this.data = TRUCKS
+    this.data = []
   }
 
   render () {
@@ -69,6 +69,16 @@ export class DeliveryDatatable extends LitElement {
     </div>
     `
   }
+
+  // connectedCallback () {
+  //   super.connectedCallback()
+  //   this.addEventListener('stock-control-list-product-notify', this._notifyDataSetChange)
+  // }
+
+  // disconnectedCallback () {
+  //   super.disconnectedCallback()
+  //   document.removeEventListener('stock-control-list-product-notify', this._notifyDataSetChange)
+  // }
 
   // TODO: Pasar a un componente
   _renderTableRow (row) {
@@ -98,6 +108,12 @@ export class DeliveryDatatable extends LitElement {
     return status === 'entregado'
       ? 'status-delivered'
       : 'status-pending'
+  }
+
+  _notifyDataSetChange (e) {
+    console.log('>>>> detail: ', e.detail)
+    // this.data = e.detail
+    // this.requestUpdate()
   }
 }
 
