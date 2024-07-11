@@ -7,12 +7,12 @@
 import { LitElement, html, css } from 'lit';
 import './BBVATemplate.js';
 
-class FormPedidos extends LitElement {
-    static get is() {
+export class FormPedidos extends LitElement {
+    static get is () {
         return 'form-pedidos';
     }
 
-    static get styles() {
+    static get styles () {
         return [
             css`
                 .form-group {
@@ -36,7 +36,7 @@ class FormPedidos extends LitElement {
         ];
     }
 
-    static get properties() {
+    static get properties () {
         return {
             products: { type: Array },
             orderProducts: { type: Array },
@@ -51,7 +51,7 @@ class FormPedidos extends LitElement {
         this.total = 0;
     }
 
-    render() {
+    render () {
         return html`
                 <form>
                     <div class="form-group">
@@ -90,14 +90,14 @@ class FormPedidos extends LitElement {
                 </form>
         `;
     }
-    addProduct() {
+    addProduct () {
         this.orderProducts = [
             ...this.orderProducts,
             { id: this.orderProducts.length, product: '', quantity: 1 }
         ];
     }
 
-    updateProduct(e, index) {
+    updateProduct (e, index) {
         const value = e.target.value;
         this.orderProducts = this.orderProducts.map((p, i) => {
             if (i === index) {
@@ -107,7 +107,7 @@ class FormPedidos extends LitElement {
         });
     }
 
-    updateQuantity(e, index) {
+    updateQuantity (e, index) {
         const value = parseInt(e.target.value, 10);
         this.orderProducts = this.orderProducts.map((p, i) => {
             if (i === index) {
@@ -118,17 +118,17 @@ class FormPedidos extends LitElement {
         this.calculateTotal();
     }
 
-    calculateTotal() {
+    calculateTotal () {
         this.total = this.orderProducts.reduce((acc, p) => {
             const price = this.getProductPrice(p.product);
             return acc + (price * p.quantity);
         }, 0);
     }
 
-    getProductPrice(product) {
+    getProductPrice (product) {
         // Dummy function to get product price, replace with real implementation
         return 10;
     }
 }
 
-window.customElements.define(OrderForm.is, OrderForm);
+window.customElements.define(FormPedidos.is, FormPedidos);
