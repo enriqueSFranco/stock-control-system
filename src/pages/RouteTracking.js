@@ -16,7 +16,7 @@ class RouteTracking extends LitElement {
   render () {
     return html`
       <bbva-template>
-          <delivery-datatable></delivery-datatable>
+          <delivery-datatable ></delivery-datatable>
       </bbva-template>
     `;
   }
