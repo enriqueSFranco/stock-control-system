@@ -4,19 +4,13 @@
  * Description: Orders view template
  */
 
-import { LitElement, html, css } from "lit";
-import "../atoms/NoDataLoaded";
-import "../atoms/OrderCard";
+import { html, css } from "lit";
+import BDManager from "../mixins/BDManager";
+import { ORDERS_HEADERS } from "../../shared/constants.d";
 
-class OrdersView extends LitElement{
+class OrdersView extends BDManager{
     static get is(){
         return "orders-view";
-    }
-
-    static get properties(){
-        return{
-            data: Array
-        }
     }
 
     static get styles(){
@@ -25,7 +19,7 @@ class OrdersView extends LitElement{
                 :host{
                     width:80%;
                     margin: 0 auto;
-                    background-color: var(--background);
+                    background-color: white;
                     display: flex;
                     flex-wrap: wrap;
                     padding: 30px;
@@ -36,24 +30,36 @@ class OrdersView extends LitElement{
         ]
     }
 
-    constructor(){
-        super();
-        this.data = [];
+    connectedCallback(){
+        super.connectedCallback();
     }
 
-    _getCards(){
-        console.log(this.data);
-        if(this.data.length > 0){
-            return this.data.map(order => {
-                return html`<order-card .order=${order}></order-card>`;
-            });
+    _showProductInfo(item){
+        console.log("show ", item)
+        const toshow = "Product List:\n".concat(item.productos.map(product =>{
+            return `Product: ${this._findIn("productos", product.id).nombre} | ${product.quantity}pzs`;
+        }).join("\n"));
+        alert(toshow);
+    }
+
+    _renderOrders(){
+        console.log(this._data.orders, ORDERS_HEADERS);
+        if(this._data.orders.length > 0){
+            return html`
+                <data-table .tableHeaders=${ORDERS_HEADERS} .tableData=${this._data.orders.map((item) =>{
+                    return {
+                        ...item,
+                        products: html`<alert-trigger @click=${()=>this._showProductInfo(item)} .text=${"Show Products"}></alert-trigger>`
+                    }
+                })}></data-table>
+            `;
         }
         return html`<nodata-loaded></nodata-loaded>`;
     }
 
     render(){
         return html`
-            ${this._getCards()}
+            ${this._renderOrders()}
         `;
     }
 }

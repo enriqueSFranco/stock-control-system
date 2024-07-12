@@ -6,12 +6,6 @@
 
 import { LitElement, html, css } from 'lit'
 
-import "./pages/OrdersPage"
-import "./pages/StockControl"
-import "./pages/RouteTracking"
-import "./pages/OrdersManagement"
-import "./components/templates/DOMRouter"
-
 export class StockControlApp extends LitElement {
   _routes = [
     {path: "/", component: html`<orders-page></orders-page>`},

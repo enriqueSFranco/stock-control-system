@@ -5,8 +5,6 @@
  */
 
 import { LitElement, html, css } from "lit";
-import "../organisms/BBVAHeader"
-
 
 class BBVATemplate extends LitElement{
     static get is(){

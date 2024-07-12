@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { BaseButtonStyle } from '../../styles/styles';
 
 /**
  * Autor: Brayan Gil Perez
@@ -17,16 +18,14 @@ import { LitElement, html, css } from 'lit';
  * - eliminar-clicked: Se dispara cuando se hace clic en el botón de eliminar después de confirmar.
  */
 class BotonEliminar extends LitElement {
-  static styles = css`
-    .btn-eliminar {
-      padding: 5px 10px;
-      border: none;
-      margin: 0 5px;
-      color: white;
-      border-radius: 50px;
-      background-color: red;
+  static styles = [
+    BaseButtonStyle,
+    css`
+      .btn-eliminar {
+        background-color: red;
     }
-  `;
+  `]
+    
 
   /**
    * Renderiza el componente.
@@ -35,7 +34,7 @@ class BotonEliminar extends LitElement {
    */
   render() {
     return html`
-      <button class="btn-eliminar" @click="${this._handleClick}">Eliminar</button>
+      <button class="btn btn-eliminar" @click="${this._handleClick}">Eliminar</button>
     `;
   }
 

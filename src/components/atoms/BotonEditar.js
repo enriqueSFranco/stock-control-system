@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { BaseButtonStyle } from '../../styles/styles';
 
 /**
  *  Autor: Brayan Gil Perez
@@ -17,16 +18,13 @@ import { LitElement, html, css } from 'lit';
  * - editar-clicked: Se dispara cuando se hace clic en el botón de editar.
  */
 class BotonEditar extends LitElement {
-  static styles = css`
-    .btn-editar {
-      padding: 5px 10px;
-      border: none;
-      margin: 0 5px;
-      color: white;
-      border-radius: 50px;
-      background-color: green;
-    }
-  `;
+  static styles = [
+    BaseButtonStyle,
+    css`
+      .btn-editar {
+        background-color: green;
+      }
+  `]
 
   /**
    * Renderiza el componente.
@@ -35,7 +33,7 @@ class BotonEditar extends LitElement {
    */
   render() {
     return html`
-      <button class="btn-editar" @click="${this._handleClick}">Editar</button>
+      <button class="btn btn-editar" @click="${this._handleClick}">Editar</button>
     `;
   }
 

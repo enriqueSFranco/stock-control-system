@@ -5,9 +5,6 @@
  */
 
 import { LitElement, html, css } from "lit";
-import "../components/templates/BBVATemplate";
-import "../components/templates/ListComponent";
-import "../components/templates/FormularioComponent"
 
 class StockControl extends LitElement{
     static get is(){

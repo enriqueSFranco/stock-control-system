@@ -1,1 +1,3 @@
-import "./components/sotckcontrol-app.js"
+import "./components/index.js"
+import "./pages/index.js";
+import "./StockControlApp.js"

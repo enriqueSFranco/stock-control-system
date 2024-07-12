@@ -5,7 +5,6 @@
  */
 
 import { LitElement, html } from "lit";
-import "../components/templates/BBVATemplate"
 
 class OrdersManagement extends LitElement{
     static get is(){
@@ -15,7 +14,8 @@ class OrdersManagement extends LitElement{
     render(){
         return html`
             <bbva-template>
-                <div>OrdersManagement</div>
+                <h1 style="text-align: center; text-transform: uppercase">Gestión de pedidos</h1>
+                <orders-form></orders-form>
             </bbva-template>
         `;
     }

@@ -5,7 +5,7 @@
  */
 
 import { LitElement, html, css } from "lit";
-import "../atoms/RouteLink"
+import "../molecules/NavLink"
 
 
 class NavBar extends LitElement{
@@ -33,7 +33,7 @@ class NavBar extends LitElement{
                     text-transform: uppercase;
                 }
 
-                li route-link {
+                li nav-link {
                     color: var(--contrast-color);
                     transition: color 0.3s ease;
                 }
@@ -45,13 +45,13 @@ class NavBar extends LitElement{
         return html`
             <ul>
                 <li>
-                    <route-link to="/stock-control">Gestión Stock</route-link>
+                    <nav-link to="/stock-control">Gestión Stock</nav-link>
                 </li>
                 <li>
-                    <route-link to="/route-tracking">Seguimiento Rutas</route-link>
+                    <nav-link to="/route-tracking">Seguimiento Rutas</nav-link>
                 </li>
                 <li>
-                    <route-link to="/orders-management">Gestión de Pedidos</route-link>
+                    <nav-link to="/orders-management">Gestión de Pedidos</nav-link>
                 </li>
             </ul>
         `;

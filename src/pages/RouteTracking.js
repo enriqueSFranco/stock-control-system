@@ -5,7 +5,6 @@
  */
 
 import { LitElement, html } from "lit";
-import "../components/templates/BBVATemplate"
 
 class RouteTracking extends LitElement{
     static get is(){
